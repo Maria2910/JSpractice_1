@@ -1,0 +1,9 @@
+function isPalindrome(number) {
+  const strNumber = String(number);
+  const reversedStrNumber = strNumber.split('').reverse().join('');
+  return strNumber === reversedStrNumber;
+}
+
+console.log(isPalindrome(121));
+console.log(isPalindrome(-121));
+console.log(isPalindrome(10));
