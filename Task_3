@@ -1,0 +1,30 @@
+function romanToArabic(roman) {
+  const romanMap = {
+    I: 1,
+    V: 5,
+    X: 10,
+    L: 50,
+    C: 100,
+    D: 500,
+    M: 1000,
+  };
+
+  let arabic = 0;
+  let prevValue = 0;
+
+  for (let i = roman.length - 1; i >= 0; i--) {
+    const currentChar = roman[i];
+    const currentValue = romanMap[currentChar];
+    if (currentValue < prevValue) {
+      arabic -= currentValue;
+    } else {
+      arabic += currentValue;
+    }
+    prevValue = currentValue;
+  }
+  return arabic;
+}
+
+console.log(romanToArabic("III"));
+console.log(romanToArabic("LVIII"));
+console.log(romanToArabic("MCMXCIV"));
