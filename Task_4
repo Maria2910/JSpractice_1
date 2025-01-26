@@ -1,0 +1,19 @@
+function countUnique(nums) {
+  if (!nums || nums.length === 0) {
+    return 0;
+  }
+  let k = 0;
+  nums.forEach((num, index, arr) => {
+    if (index === 0 || num !== arr[index - 1]) {
+      nums[k] = num;
+      k++;
+    }
+  });
+  return k;
+}
+
+let nums1 = [1, 1, 2];
+console.log(countUnique(nums1));
+
+let nums2 = [0, 0, 1, 1, 1, 2, 2, 3, 3, 4];
+console.log(countUnique(nums2));
